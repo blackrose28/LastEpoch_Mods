@@ -28,9 +28,6 @@ namespace LastEpoch_Hud.Scripts.Mods.Items
                 {
                     panel.Open();
                     isLegendaryCrafting = true;
-                    var unique = Refs_Manager.EternityCachePanelUI.beforeMain.Container.GetContent()[0].data;
-                    var exalted = Refs_Manager.EternityCachePanelUI.beforeOther.Container.GetContent()[0].data;
-                    unique.absorb4ModExaltedItemToBecomeLegendary(exalted);
                 }
                 else
                 {
@@ -48,8 +45,16 @@ namespace LastEpoch_Hud.Scripts.Mods.Items
             {
                 if (isLegendaryCrafting)
                 {
+                    if (__instance.beforeMain.IsNullOrDestroyed() 
+                        && __instance.beforeMain.Container.IsNullOrDestroyed() 
+                        && __instance.beforeMain.Container.GetContent().Count == 0) { return false; }
+                    if (__instance.beforeOther.IsNullOrDestroyed()
+                        || __instance.beforeOther.Container.IsNullOrDestroyed()
+                        || __instance.beforeOther.Container.GetContent().Count == 0) { return false; }
+
                     var unique = __instance.beforeMain.Container.GetContent()[0].data;
                     var exalted = __instance.beforeOther.Container.GetContent()[0].data;
+
                     if (unique.IsNullOrDestroyed() || exalted.IsNullOrDestroyed()) { return false; }
                     unique.absorb4ModExaltedItemToBecomeLegendary(exalted);
                     return true;
