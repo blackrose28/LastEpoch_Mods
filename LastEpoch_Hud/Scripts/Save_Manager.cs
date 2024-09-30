@@ -62,7 +62,8 @@ namespace LastEpoch_Hud.Scripts
                 KeyBinds =
                 {
                     BankStashs = KeyCode.F3,
-                    HeadhunterBuffs = KeyCode.F2
+                    HeadhunterBuffs = KeyCode.F2,
+                    EternityCache = KeyCode.F4,
                 },
                 modsNotInHud =
                 {
@@ -469,6 +470,7 @@ namespace LastEpoch_Hud.Scripts
             if (data.ModVersion != Main.mod_version)
             {
                 //Update save when mod update here
+                data.KeyBinds.EternityCache = KeyCode.F4;
 
                 data.ModVersion = Main.mod_version;
                 data_changed = true;
@@ -511,6 +513,7 @@ namespace LastEpoch_Hud.Scripts
             {
                 public UnityEngine.KeyCode BankStashs;
                 public UnityEngine.KeyCode HeadhunterBuffs;
+                public UnityEngine.KeyCode EternityCache;
             }
             //Options not in hud (you have to set in defaultconfig before build)
             public struct ModsNotInHud

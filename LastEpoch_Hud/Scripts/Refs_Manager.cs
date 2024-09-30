@@ -13,6 +13,7 @@ namespace LastEpoch_Hud.Scripts
         public static CharacterSelect character_select;
         public static SceneList scene_list;
         public static InventoryPanelUI InventoryPanelUI = null;
+        public static EternityCachePanelUI EternityCachePanelUI = null;
         public static GameObject BlessingsPanel = null;
         public static Actor player_actor = null;
         public static LE.Data.CharacterData player_data = null;
@@ -72,6 +73,14 @@ namespace LastEpoch_Hud.Scripts
                         {
                             InventoryPanelUI = game_uibase.inventoryPanel.instance.GetComponent<InventoryPanelUI>();
                         }
+                    }
+                    if ((EternityCachePanelUI.IsNullOrDestroyed()) && (!game_uibase.eternityCachePanel.IsNullOrDestroyed()))
+                    {
+                        if (game_uibase.eternityCachePanel.instance.IsNullOrDestroyed())
+                        {
+                            game_uibase.eternityCachePanel.GetInstance();
+                        }
+                        EternityCachePanelUI = game_uibase.eternityCachePanel.instance.GetComponent<EternityCachePanelUI>();
                     }
                     if ((crafting_panel_ui.IsNullOrDestroyed()) && (!game_uibase.craftingPanel.IsNullOrDestroyed()))
                     {
