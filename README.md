@@ -42,10 +42,10 @@
 - No lost when die (untested)
 <br/><br/>
 ## How to : 
-+ Install Melon Loader 5.7
++ Install Melon Loader 6+ (Tested with 6.5)
 + Launch your game once
-+ Compile "LastEpochMods.dll" from the source code (or [get compiled version here](https://www.nexusmods.com/lastepoch/mods/4/?tab=files&jump_to_comment=135082019)), and copy in "YourGame\Mods\"
++ Compile "LastEpochMods.dll" from the source code (or [get compiled version here](https://github.com/RolandSolymosi/LastEpoch_Mods/releases/)), and copy in "YourGame\Mods\"
 + Launch your game
 <br/><br/>
 ## Requirements :
-+ [Melon Loader 5.7](https://github.com/LavaGang/MelonLoader)
++ [Melon Loader 6+](https://github.com/LavaGang/MelonLoader)
