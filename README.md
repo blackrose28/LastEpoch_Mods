@@ -1,3 +1,5 @@
+# Discord: https://discord.gg/QZC4TD4Nsc
+
 # LastEpoch Mods
 + ItemDrop :
 - Gold Multiplier
