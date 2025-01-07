@@ -265,6 +265,8 @@ namespace LastEpoch_Hud.Scripts.Mods.Items
             public static bool first_time = true;
             public static string forge_string = "Forge Mod";
             public static string rune_of_discovery_string = "Discovery";
+            public static string rune_of_removal = "Remove an Affix";
+            public static string rune_of_shattering = "Shatter";
             public static string latest_string = "";
 
             //Select Item
@@ -1159,6 +1161,25 @@ namespace LastEpoch_Hud.Scripts.Mods.Items
                         else if (Crafting_Manager.latest_string == Crafting_Manager.rune_of_discovery_string) //shoud be use for rune of discovery
                         {
                             //Default = Add 4 affix maximum                        
+                        } else if (Crafting_Manager.latest_string == Crafting_Manager.rune_of_removal)
+                        {
+                            //Melon<LastEpoch_Hud.Main>.Logger.Msg("Last string:" + Crafting_Manager.latest_string);
+                            ItemAffix affix = null;
+                            int lowest_affix_tier = 7;
+                            foreach (ItemAffix itemAffix in Current.item.affixes)
+                            {
+                                if (itemAffix.affixTier <= lowest_affix_tier && !itemAffix.isSealedAffix)
+                                {
+                                    affix = itemAffix;
+                                    lowest_affix_tier = itemAffix.affixTier;
+                                }
+                            }
+                            if (affix != null)
+                            {
+                                Current.item.RemoveAffix(affix);
+                                Current.item.RefreshIDAndValues();
+                                result = false;
+                            }
                         }
                         __instance.forgeButton.gameObject.active = true;
                         forgin = false;
